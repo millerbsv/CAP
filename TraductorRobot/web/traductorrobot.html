@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TraductorRobot</title>
+    <link rel="stylesheet" href="../theme/traductorrobot.css">
+    <link rel="stylesheet" href="../lib/CodeMirror/lib/codemirror.css">
+    <script src="../lib/CodeMirror/lib/codemirror.js"></script>
+    <script src="../lib/CodeMirror/Mode/shell/shell.js"></script>
+    <script src="../lib/Js/jquery-1.11.0.js">
+	</script>
+    <script>
+    	$(document).ready(function(){
+          $('#enviar').click(function(){
+            var urlStr ="http://192.168.1.60/arduino"+TranslateText()+"/";
+            $.getJSON(urlStr,function(data){
+                alert(data);              
+            });            
+          });
+          function TranslateText(){            
+            var Type="/print/";  
+            var Text = editor.getValue();
+            return Type+Text;
+          }
+          $('#borrar').click(function(){
+            editor.setValue("");                      
+          });
+        });
+    </script>
+  </head>
+  <body>
+    <h1>TraductorRobot</h1>
+    
+    <p>Pontificia Universidad Javeriana Cali</p>
+    <p><strong>CAP</strong></p>
+    <nav>
+      <button id="enviar">Enviar</button>
+      <button id="borrar">Borrar todo</button> 
+    </nav>
+    <div id="sample_container_id">
+    
+    <textarea id=code name=code>
+    
+    </textarea>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        mode: 'shell',
+        lineNumbers: false,
+        matchBrackets: false
+      });
+    </script>
+    
+      <p id="sample_text_id"></p>
+    </div>
+  </body>
+</html>
