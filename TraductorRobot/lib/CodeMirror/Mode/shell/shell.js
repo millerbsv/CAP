@@ -19,18 +19,16 @@ CodeMirror.defineMode('shell', function() {
   };
 
   // Atoms
-  define('atom', 'true false');
+  //define('atom', 'true false');
 
   // Keywords
-  define('keyword', 'if then do else elif while until for in esac fi fin ' +
-    'fil done exit set unset export function');
+  define('keyword', 'IF THEN TO FOR OPEN INPUT GOTO PRINT NEXT LINE');
 
   // Commands
-  define('builtin', 'ab awk bash beep cat cc cd chown chmod chroot clear cp ' +
-    'curl cut diff echo find gawk gcc get git grep kill killall ln ls make ' +
-    'mkdir openssl mv nc node npm ping ps restart rm rmdir sed service sh ' +
-    'shopt shred source sort sleep ssh start stop su sudo tee telnet top ' +
-    'touch vi vim wall wc wget who write yes zsh');
+  define('builtin', 'DP DW HE IP MA MC MJ MO MP MS MT NT ' +
+    'OG PC PD PL PX SF SP TI TL CP DA DC DL EQ GS ' +
+    'GT IC LG NE NW NX RC RN RT SC SM GC GF GO ' +
+    'GP ID IN OB OD OT TB CR DR ER LR PR WH');
 
   function tokenBase(stream, state) {
 
