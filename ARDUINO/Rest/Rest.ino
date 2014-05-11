@@ -10,10 +10,7 @@ void setup() {
   Serial.begin(9600);
 
   // Bridge startup
-  pinMode(13, OUTPUT);
-  digitalWrite(13, LOW);
   Bridge.begin();
-  digitalWrite(13, HIGH);
 
 
   // Listen for incoming connection only from localhost
