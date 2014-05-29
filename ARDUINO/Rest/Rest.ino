@@ -7,7 +7,7 @@ String startString;
 long hits = 0;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600,SERIAL_7E2);
 
   // Bridge startup
   Bridge.begin();
@@ -17,13 +17,6 @@ void setup() {
   server.listenOnLocalhost();
   server.begin();
 
-  // get the time that this sketch started:
-  Process startTime;
-  startTime.runShellCommand("date");
-  while (startTime.available()) {
-    char c = startTime.read();
-    startString += c;
-  }
 }
 
 void loop() {
@@ -40,8 +33,10 @@ void loop() {
    {
      command=client.readStringUntil('/');
      command.trim();
-     
-    Serial.println(command);
+     String instruccion = "PRINT #1, \"";
+     instruccion = instruccion +command+"\"";
+
+     Serial.println(instruccion);
    
    
   // set JSON header
